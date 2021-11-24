@@ -3,7 +3,7 @@
    
 
 
-    <div class="container">
+    <div class="">
     
     <div class="mt-5 row">
 	<div class="col-md-1">
@@ -59,13 +59,12 @@
     </div>
 
   </div>
-  <div class="row h-75" style="background-color:#eee">
+  <div class="row h-15" style="background-color:#eee">
    
     </div>
-   <div class="row d-flex justify-content-center">
+   <div class=" d-flex justify-content-start">
   <div v-for="(pic,index) in uploadphoto" :key="pic.id" :value="index">
-  <span>{{pic.photo}}</span> 
-   <!-- <img :src="'https://vrent.techvill.org/vrentapi/public/images/'+pic.photo" alt=""> -->
+   <div class="p-1"><img :src="pic.photo_url" alt="nothing" class=" float-start" style="height:200px; width:200px; border-radius: 10px;" > </div>
   </div>
   
   </div>
@@ -76,7 +75,7 @@
      
     </div>
     <div>
-   <router-link :to="{ path: '/amenities'+this.$route.params.id }" class="btn btn-primary mt-4">Next</router-link>
+   <router-link :to="{ path: '/price'+this.$route.params.id }" class="btn btn-primary mt-4">Next</router-link>
     </div>
   </div>
 </div>
@@ -113,9 +112,6 @@ export default {
     this.view();
   },
 methods: { 
- 
-
-
       ab() {
      console.log("ab method in");
      let user = JSON.parse(localStorage.getItem("user"));
@@ -170,37 +166,13 @@ view() {
         });
     },
     
-    // add() {
-    //   this.loading=true;
-    //   let user = JSON.parse(localStorage.getItem("user"));
-    //   axios
-    //     .post(
-    //       "https://vrent.techvill.org/vrentapi/api/listing/" +
-    //         this.$route.params.id +
-    //         "/photos",
-          
-    //       { 
-
-    //       photos:this.photos
-         
-    //      },
-    //       {
-    //         headers: { Authorization: "Bearer " + user.token, "Content-Type": "multipart/form-data" },
-    //       }
-    //     )
-    //     .then((res) => {
-    //         this.loading=false;
-    //         this.$router.push(`/price${res.data.data.steps.property_id}`);        
-    //     }).catch((res) => {
-    //       res.data
-    //       this.loading = false         
-    //     });
-    // },
+   
 },
 
 }
 </script>
 <style scoped>
+
 .backgrnd{ 
 background-color: #EEEEEE;
 padding: 5px;

@@ -13,7 +13,7 @@
 			<div class="col-md-9">
   <div class="d-flex flex-column mb-3 justify-content-center text-center">
   
-  <div class="p-2  mt-1 ab">Basics</div>
+  <div class="p-2  mt-1 ab">Basic</div>
  <span v-if="steps.description==1"><div class="stl p-2 mt-1"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span>
  <span v-else><div class="bgbasic p-2 mt-1"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
  
@@ -54,10 +54,10 @@
       <option value="5">6</option>
       <option value="6">7</option>
       <option value="7">8</option>
-      <option value="8">9</option>
+      <option value="8">9</option>    
       <option value="9">10</option>
-      <option value="10">11</option>
-      <option value="12">12</option>
+      <option value="10">11</option>  
+      <option value="12">12</option>  
       <option value="12">13</option>
       <option value="14">14</option>
       <option value="15">15</option>

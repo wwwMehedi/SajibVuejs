@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container ">
+    <div class="">
    <div class="col-md-12">
    <div>
     <VueSlickCarousel :arrows="true" :dots="true">
@@ -21,8 +21,8 @@
     <div class="text-dark">
     Sort By
     <select v-model="status" name="" id="" class="p-2" @change.prevent="alert()"> 
-    <option value="1">Listed</option>
-    <option value="2">Unlisted</option>
+    <option value="listed">Listed</option>
+    <option value="Unlisted">Unlisted</option>
     </select>
 
     </div>
@@ -41,7 +41,7 @@
     <div class="d-flex justify-content-between">
     <p><i class="fa fa-star text-success p-1"></i>0(0)</p>
      <h4><i class="fa fa-dollar"></i>200/night</h4>
-    </div>
+    </div>        
     <div class="d-flex justify-content-start">
     <div>
    <p class="border p-1 px-2"><i class="fa fa-bed text-muted"></i>{{item.beds}}</p>
@@ -69,8 +69,8 @@
     <p><i class="fa fa-edit"></i>Manage Listing and calendar</p>
     </div>
     </div>
-    </div>
-    </div>
+    </div> 
+    </div> 
 
     </div>
     </div>
@@ -127,16 +127,16 @@ export default{
           
         });
     }, 
-    getPaginateList(page = 1){
-       let user = JSON.parse(localStorage.getItem("user"));
-              axios.get('https://vrent.techvill.org/vrentapi/api/properties?page=' + page,{
-          headers: {Authorization:"Bearer "+ user.token },
-        }).then(response =>{
-                    response.data
-                    this.property=response.data.data.properties;
+    // getPaginateList(page = 1){
+    //    let user = JSON.parse(localStorage.getItem("user"));
+    //           axios.get('https://vrent.techvill.org/vrentapi/api/properties?page=' + page,{
+    //       headers: {Authorization:"Bearer "+ user.token },
+    //     }).then(response =>{
+    //                 response.data
+    //                 this.property=response.data.data.properties;
                   
-              });
-            },
+    //           });
+    //         },
 
             alert(){
               alert(this.status);

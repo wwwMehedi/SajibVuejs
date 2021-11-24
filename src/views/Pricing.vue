@@ -1,7 +1,7 @@
 <template>
   
  <form action="form" @submit.prevent="add()">
-    <div class="container">
+    <div class="">
     <div class="mt-5 row">
 	<div class="col-md-1">
 		
@@ -117,7 +117,7 @@
 </div>
 
 <div class="col-md-2">
-<div class="container">
+<div class="">
 	
 </div>
 </div>
@@ -204,7 +204,7 @@ view() {
         )
         .then((res) => {
           this.loading=false;       
-        this.$router.push(`/basic${res.data.data.id}`);
+        this.$router.push(`/basic${res.data.data.id}`); 
         }).catch((res) => {
           res.data
           this.loading = false         

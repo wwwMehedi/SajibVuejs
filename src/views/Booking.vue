@@ -1,7 +1,7 @@
 <template>
   
  <form action="form" @submit.prevent="add()">
-    <div class="container">
+    <div class="">
     <div class="mt-5 row">
 	<div class="col-md-1">
 		

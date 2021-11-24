@@ -1,7 +1,7 @@
 <template>
   
    <form action="form" @submit.prevent="add()">
-    <div class="container">  
+
     <div class="mt-5 row">
 	<div class="col-md-1">
 		
@@ -35,53 +35,37 @@
 </div>
 </div>
 </div>
-<div class="col-md-6  pb-3 pl-2" style="height:720px;">
-  <div class="border d-flex flex-row row h-50" style="background-color: #eee;">
-    <div class="backgrnd d-flex align-items-start">
-      <h4>Amenity</h4>
-    </div>
-    <div class="mt-3">
-   <div class="form-check" v-for="am in amenities" :key="am.id">
- <div v-if="am.id<12">
-
-  <input class="form-check-input" type="checkbox" :value="am.id" v-model="amen" id="flexCheckDefault" name="amenities[]" data-saving="1">
-  <label class="form-check-label" for="flexCheckDefault">
-    {{am.title}}
-  </label>
-
-</div>
-
-</div>
-    </div>
-    <div class="mt-3">
+<div class="col-md-6  pb-3 pl-2 border" >
   
+    <div class="backgrnd row">
+    <h4>Amenity</h4>
     </div>
-   
-    <div class="d-flex flex-row">
-    
-    
+
+     <div class="" style="height:406px;">
+     <div class="" v-for="am in amenities" :key="am.id" >
+              <div v-if="am.id<12">
+                 <input class="" type="checkbox" :value="am.id" v-model="amen" id="flexCheckDefault" name="amenities[]" data-saving="1">
+                   <label class="form-check-label" for="flexCheckDefault">
+                     {{am.title}}
+                    </label>
+              </div>
+        </div>
+     </div>
          
-    </div>
 
-    <div class="d-flex flex-row">
-  
-    
-        
-    </div>
 
-  </div>
 
-  <div class="d-flex justify-content-between mt-3">
-    <div>
-   <router-link :to="{ path: '/location'+this.$route.params.id }" class="btn btn-primary mt-4">Back</router-link>
-    </div>
-    <div>
-   <button type="submit" class="btn btn-primary mt-4" :disabled="loading">
-<span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Next</button>                    
-
-    </div>
-  </div>
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+           <router-link :to="{ path: '/location'+this.$route.params.id }" class="btn btn-primary mt-4">Back</router-link>
+        </div>
+         <div>
+          <button type="submit" class="btn btn-primary mt-4" :disabled="loading">
+          <span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Next</button>                    
+        </div>
+       </div>
 </div>
+
 
 <div class="col-md-2">
 	
@@ -89,7 +73,7 @@
 	
 </div>
 
-</div>
+
 
 
 </form>
@@ -176,7 +160,12 @@ view() {
 
 </script>
 <style scoped>
-
+label{ 
+  margin-left: 10px;;
+}
+.height{ 
+  height:700px;
+}
 .backgrnd{ 
 background-color: #EEEEEE;
 padding: 5px;
