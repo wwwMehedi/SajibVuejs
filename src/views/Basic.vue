@@ -13,25 +13,19 @@
 			<div class="col-md-9">
   <div class="d-flex flex-column mb-3 justify-content-center text-center">
   
-  <div class="p-2  mt-1 ab">Basic</div>
- <span v-if="steps.description==1"><div class="stl p-2 mt-1"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span>
- <span v-else><div class="bgbasic p-2 mt-1"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
- 
-  
-  <span v-if="steps.location==1"><div class="stl p-2 mt-1"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
-  <span v-else><div class="bgbasic p-2 mt-1"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
-
-  <span v-if="steps.amenity==1"><div class="stl p-2 mt-1"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
-  <span v-else><div class="bgbasic p-2 mt-1"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
-  
-  <span v-if="steps.photos==1"> <div class="stl p-2 mt-1"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
-  <span v-else> <div class="bgbasic p-2 mt-1"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
-
-  <span  v-if="steps.pricing==1"><div class="stl p-2 mt-1"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div></span>
-  <span v-else> <div class="bgbasic p-2 mt-1"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div> </span>
-
-  <span v-if="steps.booking==1"> <div class="stl p-2 mt-1"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
-  <span v-else> <div class="bgbasic p-2 mt-1"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
+  <div class="ab p-2 mt-1 divborder">Basic</div>
+  <span v-if="steps.description==1"><div class="p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span>
+  <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
+  <span v-if="steps.location==1"><div class="p-2 mt-1 divborder"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
+  <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
+  <span v-if="steps.amenity==1"><div class="p-2 mt-1 divborder"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
+  <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
+  <span v-if="steps.photos==1"> <div class="p-2 mt-1 divborder"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
+  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
+  <span  v-if="steps.pricing==1"><div class="p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div></span>
+  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div> </span>
+  <span v-if="steps.booking==1"> <div class="p-2 mt-1 divborder"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
+  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
  
 
   </div>
@@ -40,7 +34,7 @@
   </div>
 
 <div class="col-md-6 border pb-3 pl-2">
-	<div class="row ">
+	<div class="row">
 		<div class="roomsandbeds d-flex align-items-start backgrnd"><h4>Rooms and Beds</h4></div>
 		<div class="col-md-6">
     
@@ -114,15 +108,11 @@
 		<div class="col-md-6">
     <label for="inputState" class="form-label">Property Type</label>
     <select class="form-select p-1"  v-model="property_type" required>
-   
-
     <option  v-for="(propertyviewlist,index) in propertyviewlists" 
       :key="propertyviewlist.id" :value="index" :selected="property_type==propertyviews.property_type_name">{{propertyviewlist}}</option> 
-    
-   </select>
-    
-  </div>
-  <div class="col-md-6">
+    </select>
+    </div>
+    <div class="col-md-6">
     <label for="inputState" class="form-label">Room Type</label>
     <select id="inputState" class="form-select" v-model="space_type" required>
       <option  v-for="(room,index) in rooms" 
@@ -284,6 +274,9 @@ server.on('connection', function (socket) {
 </script>
 
 <style scoped>
+.divborder{ 
+border:1px solid black;
+}
 .stl{ 
 border:1px solid black;
 

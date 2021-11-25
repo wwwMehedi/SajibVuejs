@@ -13,22 +13,20 @@
 			</div>
 			<div class="col-md-9">
   <div class="d-flex flex-column mb-3 justify-content-center text-center">
- <span v-if="steps.basics==1">  <div class=" p-2  mt-1" style="border:1px solid black;"> <router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link>
+ <span v-if="steps.basics==1">  <div class=" p-2  mt-1 divborder" > <router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link>
   </div></span>
- <span v-else> <div class="bgbasic p-2  mt-1"><router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link></div></span>
- <span v-if="steps.description==1"><div class="p-2 mt-1" style="border:1px solid black;"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span>
- <span v-else><div class="bgbasic p-2 mt-1"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
- <span v-if="steps.location==1"><div class="p-2 mt-1" style="border:1px solid black;"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
- <span v-else><div class="bgbasic p-2 mt-1" style="border:1px solid black;"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
-
-  <span v-if="steps.amenity==1"><div class="p-2 mt-1" style="border:1px solid black;"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
-  <span v-else><div class="bgbasic p-2 mt-1" style="border:1px solid black;"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
-  <span v-if="steps.photos==1"> <div class="p-2 mt-1" style="border:1px solid black;"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
-  <span v-else> <div class="bgbasic p-2 mt-1"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
-  <span  v-if="steps.pricing==1"><div class=" p-2 mt-1"  style="border:1px solid black;"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div></span>
- <span v-else> <div class="bgbasic p-2 mt-1"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div> </span>
-
- <div class="ab p-2 mt-1">Booking</div>
+ <span v-else> <div class="bgbasic p-2  mt-1 divborder"><router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link></div></span>
+ <span v-if="steps.description==1"><div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span>
+ <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
+ <span v-if="steps.location==1"><div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
+ <span v-else><div class="bgbasic p-2 mt-1 divborder" ><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
+  <span v-if="steps.amenity==1"><div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
+  <span v-else><div class="bgbasic p-2 mt-1 divborder" ><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
+  <span v-if="steps.photos==1"> <div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
+  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
+  <span  v-if="steps.pricing==1"><div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div></span>
+ <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div> </span>
+ <div class="ab p-2 mt-1 divborder">Booking</div>
 
  
 </div>
@@ -37,7 +35,7 @@
 		</div>
 	
 </div>
-<div class="col-md-6  pb-3 pl-2">
+<div class="col-md-6 border pb-3 pl-2">
   <div class="border d-flex flex-row row" style="background-color:#eee">
     <div class="backgrnd d-flex align-items-start">
       <h4>Booking price</h4>
@@ -56,7 +54,9 @@
   </div>
   
  <div class="row h-75" style="background-color:#eee">
+  
   </div>
+
   <div class="d-flex justify-content-between mt-3">
   <div>
     <router-link :to="{ path: '/price'+this.$route.params.id }" class="btn btn-primary mt-4">Back</router-link>
@@ -77,7 +77,7 @@
 
 </div>
     
-
+   
 </form>
 
 </template>
@@ -153,6 +153,9 @@ view() {
 }
 </script>
 <style scoped>
+.divborder{ 
+border:1px solid black;
+}
 .backgrnd{ 
 background-color: #EEEEEE;
 padding: 5px;

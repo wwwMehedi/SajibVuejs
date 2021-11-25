@@ -76,7 +76,7 @@
     </div>
     <div class="col-md-1">
 
-    </div>
+    </div> 
       <pagination :data="property" :limit="limit"  @pagination-change-page="getPaginateList">
              <span slot="prev-nav">&lt; Previous</span>
              <span slot="next-nav">Next &gt;</span>
@@ -137,6 +137,16 @@ export default{
                   
     //           });
     //         },
+
+    getPaginateList(page=1){ 
+  let user=JSON.parse(localStorage.getItem("user"));
+  axios.get('https://vrent.techvill.org/vrentapi/api/properties?page=' + page,{ 
+headers: {Authorization:"Bearer "+ user.token },
+  }).then(response=>{ 
+       response.data
+       this.property=response.data.data.properties;          
+  }); 
+    },
 
             alert(){
               alert(this.status);
