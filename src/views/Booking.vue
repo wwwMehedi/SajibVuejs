@@ -35,13 +35,13 @@
 		</div>
 	
 </div>
-<div class="col-md-6 border pb-3 pl-2">
+<div class="col-md-6 border pb-3 pl-2 colh">
   <div class="border d-flex flex-row row" style="background-color:#eee">
     <div class="backgrnd d-flex align-items-start">
       <h4>Booking price</h4>
     </div>
+    <div class="d-flex" style="height:150px">
     <div class="col-md-6">
-  
     </div>
     <div class="col-md-6">
     <label for="inputState" class="form-label"><span class="text-gray" style="font-size:18px;">Booking Type</span></label>
@@ -50,14 +50,16 @@
        <option value="instant">Guest Book Instanly</option>
     </select>
     </div>
+    </div>
 
   </div>
   
- <div class="row h-75" style="background-color:#eee">
-  
-  </div>
+ <div class="row" style="height:209px">
+ 
+ </div>
 
-  <div class="d-flex justify-content-between mt-3">
+  
+  <div class="d-flex justify-content-between mt-3" style="height:60px">
   <div>
     <router-link :to="{ path: '/price'+this.$route.params.id }" class="btn btn-primary mt-4">Back</router-link>
   </div>
@@ -67,6 +69,7 @@
 <span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Next</button>
   </div>
   </div>
+ 
 </div>
 
 <div class="col-md-2">
@@ -153,6 +156,15 @@ view() {
 }
 </script>
 <style scoped>
+.colh{
+    flex: 0 0 auto;
+    width: 50%;
+    height: 500px;
+    background: honeydew;
+}
+.heights{ 
+  height: 510px;
+}
 .divborder{ 
 border:1px solid black;
 }

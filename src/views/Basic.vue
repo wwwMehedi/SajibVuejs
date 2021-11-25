@@ -33,10 +33,10 @@
 	</div>
   </div>
 
-<div class="col-md-6 border pb-3 pl-2">
+<div class="col-md-6 border pb-3 pl-2 heights">
 	<div class="row">
 		<div class="roomsandbeds d-flex align-items-start backgrnd"><h4>Rooms and Beds</h4></div>
-		<div class="col-md-6">
+		<div class="col-md-6">    
     
    <label for="inputState" class="form-label">Bedrooms</label>
     <select id="inputState" class="form-select" v-model="totalbedrooms" required>
@@ -274,6 +274,10 @@ server.on('connection', function (socket) {
 </script>
 
 <style scoped>
+.heights{ 
+  height: 510px;
+  
+}
 .divborder{ 
 border:1px solid black;
 }

@@ -37,40 +37,35 @@
 </div>
 	
 </div>
-<div class="col-md-6 border pb-3 pl-2">
-  <div class="border d-flex flex-row row h-50" style="background-color:#eee">
+<div class="col-md-6 border pb-3 pl-2 colh">
+  <div class="border d-flex flex-row row" style="background-color:#eee">
     <div class="backgrnd d-flex align-items-start">
       <h4>Photos</h4>
     </div>
-    <div class="d-flex justify-content-between">
-
+    
+    <div class="d-flex justify-content-between" style="height:150px;">
     <div class="mt-3">
      <input type="file" ref="file" multiple="multiple">
     </div>
     <div class="mt-3">
     </div>
-    
     <div class="d-flex justify-content-between">
    <button v-on:click="ab()" class="btn btn-info" style="height:40px; color:white font-size:18px;">Submit</button>             
     </div>
-
     </div>
-
-  </div>
-  <div class="row h-15" style="background-color:#eee">
-   
-    </div>
-   <div class=" d-flex justify-content-start">
+    
+  
+  <div class="d-flex justify-content-start" style="height:155px;">
   <div v-for="(pic,index) in uploadphoto" :key="pic.id" :value="index">
-   <div class="p-1"><img :src="pic.photo_url" alt="nothing" class=" float-start" style="height:200px; width:200px; border-radius: 10px;" > </div>
+   <div class="p-1"><img :src="pic.photo_url" alt="nothing" class="float-start" style="width:150px; border-radius:10px;" > </div>
+  </div>
   </div>
   
-  </div>
-  <div class="d-flex justify-content-between mt-3">
+    </div>
+   
+  <div class="d-flex justify-content-between" style="height:60px;">
     <div>
-
-    <router-link :to="{ path: '/amenities'+this.$route.params.id }" class="btn btn-primary mt-4">Back</router-link>
-     
+    <router-link :to="{ path: '/amenities'+this.$route.params.id }" class="btn btn-primary mt-4">Back</router-link>  
     </div>
     <div>
    <router-link :to="{ path: '/price'+this.$route.params.id }" class="btn btn-primary mt-4">Next</router-link>
@@ -170,6 +165,15 @@ view() {
 }
 </script>
 <style scoped>
+.justify-content-between{ 
+  margin-top:35px;
+}
+.colh{
+    flex: 0 0 auto;
+    width: 50%;
+    height: 500px;
+    background: white;
+}
 .divborder{ 
 border:1px solid black;
 }

@@ -33,13 +33,13 @@
 <!--column div finish -->
 </div>
 </div>
-<div class="col-md-6 border pb-3 pl-2 " >
+<div class="col-md-6 border pb-3 pl-2 colh" >
   
-    <div class="backgrnd row">
-    <h4>Amenity</h4>
+   <div class="backgrnd d-flex align-items-start row">
+      <h4>Amenities</h4>
     </div>
 
-     <div class="">
+     <div class="h-75">
      <div class="" v-for="am in amenities" :key="am.id" >
               <div v-if="am.id<12">
                  <input class="" type="checkbox" :value="am.id" v-model="amen" id="flexCheckDefault" name="amenities[]" data-saving="1">
@@ -158,6 +158,12 @@ view() {
 
 </script>
 <style scoped>
+.colh{
+    flex: 0 0 auto;
+    width: 50%;
+    height: 500px;
+    background: white;
+}
 .divborder{ 
 border:1px solid black;
 }
@@ -171,7 +177,7 @@ label{
 .backgrnd{ 
 background-color: #EEEEEE;
 padding: 5px;
-padding-left: 14px;
+padding-left: 7px;
 }
 .RoomsandBeds:hover{ 
 background-color: #6C757D;

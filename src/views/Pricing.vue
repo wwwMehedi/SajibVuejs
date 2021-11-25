@@ -39,11 +39,12 @@
 </div>
 	
 </div>
-<div class="col-md-6 border pb-3 pl-2">
+<div class="col-md-6 border pb-3 pl-2 colh">
   <div class="border d-flex flex-row row">
     <div class="backgrnd d-flex align-items-start">
       <h4>Base price</h4>
     </div>
+   <div class="row" style="height:150px;">
     <div class="col-md-6">
    <label>Nightly pricing</label>
   <div class="input-group mb-3">
@@ -64,11 +65,11 @@
        <option value="MXN">MXN</option>
     </select>
     </div>
+   </div>
 
   </div>
-  <div class="mt-5">
-  </div>
-  <div class="border d-flex flex-row row">
+ 
+  <div class="border d-flex flex-row row" style="height:209px;">
     <div class="backgrnd d-flex align-items-start">
       <h4>Additional Pricing Options</h4>
     </div>
@@ -100,9 +101,7 @@
  </div>
 
   </div>
-  <div class="d-flex justify-content-between mt-3">
-
-
+  <div class="d-flex justify-content-between mt-3" style="height:60px;">
   <div>
     <router-link :to="{ path: '/photo'+this.$route.params.id }" class="btn btn-primary mt-4">Back</router-link>
   </div>
@@ -215,6 +214,12 @@ view() {
 }
 </script>
 <style scoped>
+.colh{
+    flex: 0 0 auto;
+    width: 50%;
+    height: 500px;
+    background: white;
+}
 .divborder{ 
 border:1px solid black;
 }

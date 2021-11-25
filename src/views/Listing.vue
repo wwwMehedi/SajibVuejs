@@ -146,7 +146,7 @@ headers: {Authorization:"Bearer "+ user.token },
        response.data
        this.property=response.data.data.properties;          
   }); 
-    },
+    },         
 
             alert(){
               alert(this.status);
