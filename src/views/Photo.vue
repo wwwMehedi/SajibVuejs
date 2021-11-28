@@ -18,18 +18,18 @@
   <div class="d-flex flex-column mb-3 justify-content-center text-center">
  <span v-if="steps.basics==1"><div class=" p-2  mt-1 divborder"> <router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link>
   </div></span>
- <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link></div></span>
+ <span v-else> <div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link></div></span>
  <span v-if="steps.description==1"><div class="p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span>
- <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
+ <span v-else><div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
  <span v-if="steps.location==1"><div class="p-2 mt-1 divborder"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
- <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
+ <span v-else><div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
   <span v-if="steps.amenity==1"><div class="p-2 mt-1 divborder"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
- <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
+ <span v-else><div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
   <div class="ab p-2 mt-1 divborder">Photo</div>
   <span  v-if="steps.pricing==1"><div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div></span>
-  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div> </span>
+  <span v-else> <div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div> </span>
   <span v-if="steps.booking==1"> <div class="p-2 mt-1 divborder"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
-  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
+  <span v-else> <div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
   
  
 </div>
@@ -50,7 +50,13 @@
     <div class="mt-3">
     </div>
     <div class="d-flex justify-content-between">
-   <button v-on:click="ab()" class="btn btn-info" style="height:40px; color:white font-size:18px;">Submit</button>             
+   <button v-on:click="ab()" class="btn btn-info" :disabled="loading" style="height:40px; color:white font-size:18px;">
+                  <span
+                  v-if="loading"
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                 ></span>Upload</button>             
     </div>
     </div>
     
@@ -97,7 +103,7 @@ export default {
       summary:"",
       step:'',
       steps:'',
-     loading:true,
+     loading:false,
      uploadphoto:[],
     };
   },
@@ -106,6 +112,7 @@ export default {
   },
 methods: { 
       ab() {
+        this.loading=true;
      console.log("ab method in");
      let user = JSON.parse(localStorage.getItem("user"));
 			let formData = new FormData();
@@ -127,9 +134,7 @@ console.log("form data in");
 console.log("after axios header in")
 				).then((res) => {
             res.data
-            console.log("response in")
-           
-            console.log("ok");
+           this.loading=false;
             this.view();
         })
 				.catch(function(){
@@ -155,7 +160,8 @@ view() {
             this.step=res.data.data.step;
             this.steps=res.data.data.steps;
             this.uploadphoto=res.data.data.photos;
-              console.log(this.steps);
+            console.log(this.steps);
+            this.loading=false;
         });
     },
     

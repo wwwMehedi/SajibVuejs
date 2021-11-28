@@ -3,11 +3,8 @@
     <div class="">
    <div class="col-md-12">
    <div>
-    <VueSlickCarousel :arrows="true" :dots="true">
-      <div class>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
+    <VueSlickCarousel :arrows="false" :dots="false">
+     
     </VueSlickCarousel>
   </div>
    </div>

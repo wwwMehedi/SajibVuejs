@@ -15,24 +15,24 @@
   <div class="d-flex flex-column mb-3 justify-content-center text-center">
  <span v-if="steps.basics==1">  <div class="p-2 mt-1 divborder" > <router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link>
   </div></span>
- <span v-else> <div class="bgbasic p-2  mt-1 divborder"><router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link></div></span>
+ <span v-else> <div class=" p-2  mt-1 divborder"><router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link></div></span>
  
  <span v-if="steps.description==1"><div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span>
- <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
+ <span v-else><div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
  
  <span v-if="steps.location==1"><div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
- <span v-else><div class="bgbasic p-2 mt-1 divborder" ><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
+ <span v-else><div class=" p-2 mt-1 divborder" ><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
 
   <span v-if="steps.amenity==1"><div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
-  <span v-else><div class="bgbasic p-2 mt-1 divborder" ><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
+  <span v-else><div class=" p-2 mt-1 divborder" ><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
   
   <span v-if="steps.photos==1"> <div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
-  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
+  <span v-else> <div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
   
   <div class="ab p-2 mt-1 divborder">Pricing</div>
   
   <span v-if="steps.booking==1"> <div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
-  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
+  <span v-else> <div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
  
 </div>
 </div>
@@ -47,9 +47,10 @@
    <div class="row" style="height:150px;">
     <div class="col-md-6">
    <label>Nightly pricing</label>
+   <p class="text-danger">{{error}}</p>
   <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">$</span>
-  <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" v-model="price" required>
+  <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" v-model="price">
  </div>
     </div>
     <div class="col-md-6">
@@ -75,20 +76,23 @@
     </div>
    <div class="col-md-6">
   <label>Cleaning fee</label>
-  
+   <p class="text-danger">{{errorclfee}}</p>
   <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">$</span>
   <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" v-model="cleaning_fee">
  </div>
 
   <label>Security deposit</label>
+ 
   <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">$</span>
   <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" v-model="security_fee">
  </div>
  </div>
     <div class="col-md-6">
+    
     <label>Additional Guest</label>
+    <p class="text-danger">{{erroradguestfee}}</p>
   <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">$</span>
   <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" v-model="guest_fee">
@@ -145,7 +149,9 @@ export default {
       step:'',
       steps:'',
       loading:false,
-    
+      error:'',
+      errorclfee:'',
+      erroradguestfee:''
     };
   },
   mounted(){ 
@@ -179,7 +185,17 @@ view() {
         });
     },
     add() {
+        if(this.price=='' ||this.price<5){ 
+          this.error="fill up at least 5 dollars"
+        }
+         if(this.cleaning_fee==''||this.cleaning_fee<5){ 
+          this.errorclfee="fill up at least 5 dollars"
+        }
+        if(this.guest_fee=='' ||this.guest_fee<5) this.erroradguestfee="fill up at least 5 dollars"
+        else
+        
       this.loading=true;
+    
       let user = JSON.parse(localStorage.getItem("user"));
       axios
         .post(

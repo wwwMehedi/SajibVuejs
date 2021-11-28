@@ -15,26 +15,27 @@
   
   <div class="ab p-2 mt-1 divborder">Basic</div>
   <span v-if="steps.description==1"><div class="p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span>
-  <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
+  <span v-else><div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
   <span v-if="steps.location==1"><div class="p-2 mt-1 divborder"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
-  <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
+  <span v-else><div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
   <span v-if="steps.amenity==1"><div class="p-2 mt-1 divborder"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
-  <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
+  <span v-else><div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
   <span v-if="steps.photos==1"> <div class="p-2 mt-1 divborder"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
-  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
+  <span v-else> <div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
   <span  v-if="steps.pricing==1"><div class="p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div></span>
-  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div> </span>
+  <span v-else> <div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div> </span>
   <span v-if="steps.booking==1"> <div class="p-2 mt-1 divborder"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
-  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
+  <span v-else> <div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/booking'+this.$route.params.id }" style="text-decoration:none;">Booking</router-link></div> </span>
  
-
+ 
   </div>
 	</div>
 	</div>
   </div>
 
-<div class="col-md-6 border pb-3 pl-2 heights">
-	<div class="row">
+<div class="col-md-6 border pb-3 pl-2 colh">
+	<div class="" style="height:189px; ">
+  <div class="row">
 		<div class="roomsandbeds d-flex align-items-start backgrnd"><h4>Rooms and Beds</h4></div>
 		<div class="col-md-6">    
     
@@ -63,16 +64,16 @@
     <label for="inputState" class="form-label">Bed</label>
     <select id="inputState" class="form-select" v-model="totalbed" required>
       
-      <option value="0.5">0.5</option>
-      <option value="1">1</option>
-      <option value="1.5">1.5</option>
+       <option value="1">1</option>
       <option value="2">2</option>
-        <option value="2.5">2.5</option>
       <option value="3">3</option>
-      <option value="3.5">3.5</option>
       <option value="4">4</option>
-      <option value=".45">4.5</option>
       <option value="5">5</option>
+       <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>  
       
     </select>
   </div>
@@ -80,17 +81,20 @@
 	<div class="row">
 		<div class="col-md-6">
    <label for="inputState" class="form-label">Bathrooms</label>
-    <select id="inputState" class="form-select" v-model="totalbathroom" required  >
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-       <option>6</option>
-      <option>7</option>
-      <option>8</option>
-      <option>9</option>
-      <option>10</option>    
+  
+    <select id="inputState"  class="form-select" v-model="bathroomss" required  >
+    
+      <option  class="selected" value="0.5">0.5</option>
+      <option value="1">1</option>
+      <option value="1.5">1.5</option>
+      <option value="2">2</option>
+      <option value="2.5">2.5</option>
+      <option value="3">3</option>
+      <option value="3.5">3.5</option>
+      <option value="4">4</option>
+      <option value="4.5">4.5</option>
+      <option value="5">5</option>
+  
     </select>
   </div>
   <div class="col-md-6">
@@ -101,8 +105,10 @@
     </select>
   </div>
 	</div>
+  </div>
 
 <!-- This is second row -->
+<div class="" style="200">
 <div class="row mt-5">
 		<div class=" Listings d-flex align-items-start backgrnd"><h4>Listings</h4></div>
 		<div class="col-md-6">
@@ -124,8 +130,9 @@
 	<div class="row">
 		<div class="col-md-6">
    <label for="inputState" class="form-label">Accommodates</label>
-    <select id="inputState" class="form-select" v-model="accomodates" required>
-      <option selected value="1">1</option>
+  
+    <select id="inputState" class="form-select" v-model="accommodates" required>
+      <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
@@ -136,6 +143,7 @@
   </div>
   
 	</div>
+</div>
 <div class="d-flex justify-content-end">
       <button type="submit" class="btn btn-primary mt-4" :disabled="loading">   <span
                   v-if="loading"
@@ -170,9 +178,9 @@ export default {
       totalbathroom:"",
       totalbedrooms:"",
       propertyviews:"",
-      accomodates:"",
+      accommodates:"",
       propertyviewlists:"",
-
+      bathroomss:"",
       bedtype:"",
       rooms:"",
       beds:"",
@@ -219,17 +227,19 @@ server.on('connection', function (socket) {
           this.propertyviewlists = res.data.data.property_type;
           this.rooms = res.data.data.space_type;
           this.bedtypes = res.data.data.bed_type;
-          this.accommodates = res.data.data.accommodates;
+         // this.accommodates = res.data.data.accommodates;
 
           this.totalbedrooms = res.data.data.property.bedrooms;
           this.bed_type = res.data.data.property.bed_type;
           this.totalbed = res.data.data.property.beds;
-          this.totalbathroom = res.data.data.property.bathrooms;
+          this.bathroomss = res.data.data.property.bathrooms;
           this.property_type= res.data.data.property.property_type,
           this.space_type=res.data.data.property.space_type,
-
+          this.accommodates=res.data.data.property.accommodates,
+         
          this.step=res.data.data.step
          this.steps=res.data.data.steps;
+         
         });
     },
     add() {
@@ -245,9 +255,9 @@ server.on('connection', function (socket) {
             
         property_type:this.property_type,
         space_type:this.space_type,
-        accommodates:this.accomodates,
+        accommodates:this.accommodates,
         bed_type:this.bed_type,
-        bathrooms:this.totalbathroom,
+        bathrooms:this.bathroomss,
         beds:this.totalbed,
         bedrooms:this.totalbedrooms
 
@@ -274,6 +284,12 @@ server.on('connection', function (socket) {
 </script>
 
 <style scoped>
+.colh{
+    flex: 0 0 auto;
+    width: 50%;
+    height: 500px;
+    background: white;
+}
 .heights{ 
   height: 510px;
   

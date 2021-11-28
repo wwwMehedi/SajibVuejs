@@ -1,10 +1,42 @@
-<div class="col-md-6 pb-3 pl-2 bg-red">
-<div class="" v-for="am in amenities" :key="am.id">
-              <div v-if="am.id<12">
-                 <input class="form-check-input" type="checkbox" :value="am.id" v-model="amen" id="flexCheckDefault" name="amenities[]" data-saving="1">
-                   <label class="form-check-label" for="flexCheckDefault">
-                     {{am.title}}
-                    </label>
-              </div>
-</div>
-</div>
+<template>
+ <div class="container">
+ <form id="app" @submit="checkForm">
+  
+ <p class="text-info">{{ error }}</p>
+
+  <p>
+    <label for="name">New Product Name: </label>
+    <input type="text" name="name" id="name" v-model="name">
+  </p>
+
+  <p>
+    <input type="submit" value="Submit">  
+  </p>
+
+</form>
+ </div>
+</template>
+<script>
+export default { 
+   data(){
+  return{ 
+      error:'',
+    name:''
+  };
+  },
+  methods:{
+    
+    checkForm:function(e) {
+     if(this.name=='')
+    this.error="please fill up your name field";
+    
+e.preventDefault();
+    }
+  }
+}
+</script>
+<style scoped>
+input,select {
+  margin-left: 10px;
+}
+</style>

@@ -122,6 +122,13 @@ export const router = new Router({
                 import ('./views/Parent.vue')
         },
         {
+          path: '/copy',
+          name: 'copy',
+          // lazy-loaded
+          component: () =>
+              import ('./views/Justcopy.vue')
+      },
+        {
             path: '/listing',
             name: 'listing',
             // lazy-loaded
@@ -135,6 +142,7 @@ export const router = new Router({
             component: () =>
                 import ('./views/SingleListProperty.vue')
         },
+       
     ]
 });
 router.beforeEach((to, from, next) => {

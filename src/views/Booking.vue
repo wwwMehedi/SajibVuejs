@@ -7,7 +7,7 @@
 		
 	</div>
 	<div class="col-md-3 ">
-		<div class="row">
+		<div class="row">  
 			<div class="col-md-3">
 				
 			</div>
@@ -15,32 +15,32 @@
   <div class="d-flex flex-column mb-3 justify-content-center text-center">
  <span v-if="steps.basics==1">  <div class=" p-2  mt-1 divborder" > <router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link>
   </div></span>
- <span v-else> <div class="bgbasic p-2  mt-1 divborder"><router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link></div></span>
+ <span v-else> <div class=" p-2  mt-1 divborder"><router-link :to="{ path: '/basic'+this.$route.params.id }" style="text-decoration:none;">Basic</router-link></div></span>
  <span v-if="steps.description==1"><div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span>
- <span v-else><div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
+ <span v-else><div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/description'+this.$route.params.id }" style="text-decoration:none;">Description</router-link></div></span> 
  <span v-if="steps.location==1"><div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
- <span v-else><div class="bgbasic p-2 mt-1 divborder" ><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
+ <span v-else><div class=" p-2 mt-1 divborder" ><router-link :to="{ path: '/location'+this.$route.params.id }" style="text-decoration:none;">Location</router-link></div></span>
   <span v-if="steps.amenity==1"><div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
-  <span v-else><div class="bgbasic p-2 mt-1 divborder" ><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
+  <span v-else><div class=" p-2 mt-1 divborder" ><router-link :to="{ path: '/amenities'+this.$route.params.id }" style="text-decoration:none;">Amenities</router-link></div></span>
   <span v-if="steps.photos==1"> <div class="p-2 mt-1 divborder" ><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
-  <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
+  <span v-else> <div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/photo'+this.$route.params.id }" style="text-decoration:none;">Photo</router-link></div> </span>
   <span  v-if="steps.pricing==1"><div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div></span>
- <span v-else> <div class="bgbasic p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div> </span>
+ <span v-else> <div class=" p-2 mt-1 divborder"><router-link :to="{ path: '/price'+this.$route.params.id }" style="text-decoration:none;">Pricing</router-link></div> </span>
  <div class="ab p-2 mt-1 divborder">Booking</div>
-
+ 
  
 </div>
 </div>
-			
-		</div>
+
+</div>
 	
 </div>
 <div class="col-md-6 border pb-3 pl-2 colh">
   <div class="border d-flex flex-row row" style="background-color:#eee">
     <div class="backgrnd d-flex align-items-start">
-      <h4>Booking price</h4>
+      <h4>Booking price</h4> 
     </div>
-    <div class="d-flex" style="height:150px">
+    <div class="d-flex" style="height:150px" >
     <div class="col-md-6">
     </div>
     <div class="col-md-6">
@@ -144,7 +144,7 @@ view() {
         .then((res) => {
           this.loading=false;
          res.data
-         this.$router.push(`/basic${res.data.data.id}`);
+        // this.$router.push(`/basic${res.data.data.id}`);
         }).catch((res) =>{
           res.data
           this.loading = false         
