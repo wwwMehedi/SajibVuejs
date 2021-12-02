@@ -46,12 +46,12 @@
     </div>
    <div class="row" style="height:150px;">
     <div class="col-md-6">
-   <label>Nightly pricing</label>
-   <p class="text-danger">{{error}}</p>
-  <div class="input-group mb-3">
+   <label class="mt-1">Nightly pricing</label>
+  <div class="input-group">
   <span class="input-group-text" id="basic-addon1">$</span>
   <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" v-model="price">
  </div>
+ <p class="text-danger">{{error}}</p>
     </div>
     <div class="col-md-6">
     <label for="inputState" class="form-label">currency_code</label>
@@ -76,32 +76,35 @@
     </div>
    <div class="col-md-6">
   <label>Cleaning fee</label>
-   <p class="text-danger">{{errorclfee}}</p>
-  <div class="input-group mb-3">
+  <div class="input-group">
   <span class="input-group-text" id="basic-addon1">$</span>
   <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" v-model="cleaning_fee">
  </div>
+<p class="text-danger">{{errorclfee}}</p>
 
   <label>Security deposit</label>
- 
-  <div class="input-group mb-3">
+  <div class="input-group">
   <span class="input-group-text" id="basic-addon1">$</span>
   <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" v-model="security_fee">
- </div>
+ </div>  
+<div class="">
+<p class="text-danger">{{securitydeposit}}</p>
+</div>
  </div>
     <div class="col-md-6">
-    
-    <label>Additional Guest</label>
-    <p class="text-danger">{{erroradguestfee}}</p>
-  <div class="input-group mb-3">
+    <label>Additional Guest</label>       
+  <div class="input-group">
   <span class="input-group-text" id="basic-addon1">$</span>
   <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" v-model="guest_fee">
  </div>
+ <p class="text-danger">{{erroradguestfee}}</p>
+
  <label>Weekend pricing</label>
-  <div class="input-group mb-3">
+  <div class="input-group">
   <span class="input-group-text" id="basic-addon1">$</span>
   <input type="number" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" v-model="weekend_price">
  </div>
+ <p class="text-danger">{{wkndprice}}</p>
  </div>
 
   </div>
@@ -151,7 +154,10 @@ export default {
       loading:false,
       error:'',
       errorclfee:'',
-      erroradguestfee:''
+      erroradguestfee:'',
+      securitydeposit:'',
+      wkndprice:'',
+
     };
   },
   mounted(){ 
@@ -191,7 +197,15 @@ view() {
          if(this.cleaning_fee==''||this.cleaning_fee<5){ 
           this.errorclfee="fill up at least 5 dollars"
         }
-        if(this.guest_fee=='' ||this.guest_fee<5) this.erroradguestfee="fill up at least 5 dollars"
+        if(this.guest_fee=='' ||this.guest_fee<5) { 
+           this.erroradguestfee="fill up at least 5 dollars"
+        }
+        if(this.security_fee=='' ||this.security_fee<5) { 
+          this.securitydeposit="fill up at least 5 dollars"
+        }
+        if(this.weekend_price=='' ||this.weekend_price<5) { 
+          this.wkndprice="fill up at least 5 dollars"
+        }
         else
         
       this.loading=true;

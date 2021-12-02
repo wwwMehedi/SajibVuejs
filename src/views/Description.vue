@@ -124,12 +124,10 @@ view() {
         });
     },
     add() {
-       if(this.name==''){ 
-          this.errorname="fill up name field"
-        }
-         if(this.summary==''){ 
+       if(this.summary==null){    
           this.errorsumary="fill up summary field"
-        }else
+        }else 
+              
       this.loading = true;
       let user = JSON.parse(localStorage.getItem("user"));
       axios

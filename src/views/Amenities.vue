@@ -39,31 +39,37 @@
       <h4>Amenities</h4>
     </div>
 
-     <div class="h-75">
-     
+     <div class="" style="height:350px;">
+     <div class="h-100">
      <div class="" v-for="am in amenities" :key="am.id" >
-              <div v-if="am.id<12">
+              <div v-if="am.id<15">
                  <input class="" type="checkbox" :value="am.id" v-model="amen" id="flexCheckDefault" name="amenities[]" data-saving="1">
                    <label class="form-check-label" for="flexCheckDefault">
                      {{am.title}}
                     </label>
               </div>
         </div>
+     </div>
+     
         <h5 class="text-danger">{{errornameamen}}</h5>
      </div>
          
 
 
 
-      <div class="d-flex justify-content-between mt-3">
-        <div>
-           <router-link :to="{ path: '/location'+this.$route.params.id }" class="btn btn-primary mt-4">Back</router-link>
+      <div class="" style="100px">
+       <div class="d-flex justify-content-between h-100">
+        <div style="margin-top:51px;">
+           <router-link :to="{ path: '/location'+this.$route.params.id }" class="btn btn-primary" >Back</router-link>
         </div>
-         <div>
-          <button type="submit" class="btn btn-primary mt-4" :disabled="loading">
+         <div style="margin-top:51px;">
+          <button type="submit" class="btn btn-primary" :disabled="loading">
           <span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Next</button>                    
         </div>
        </div>
+      </div>
+     
+     
 </div>
 
 

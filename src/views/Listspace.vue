@@ -11,6 +11,7 @@
   <p class="pt">Vrent Lets you make money renting out your place.</p>
   </div>
   <form name="form" @submit.prevent="add()">
+ 
       <div class="row">
       <div class="col-md-6">
        <label for="inputState" class="form-label ">Home Type</label>
@@ -66,9 +67,11 @@
 </template>
 
 <script>
+
 import axios from "axios";
 //import axios from "axios";
 export default{ 
+  
 name:"user",
 data(){ 
 return{ 
@@ -80,6 +83,7 @@ property_type:"",
 space_type:"",
 dummy:"",
 loading:false,
+
 };
 },
 mounted() { 

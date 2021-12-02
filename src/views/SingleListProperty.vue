@@ -7,7 +7,7 @@
 <div class="container-fluid mt-5">
 <div class="row d-flex">
 <div class="col-md-8">
-<div class="d-flex flex-row border">
+<div class="d-flex flex-row border p-3">
 <img src="https://i.imgur.com/iNFaRXx.jpg" class="img-fluid rounded-circle" style="width:120px;height:120px;">
 <div class="">
 <h3 class="pt-3 m-2">Fresh and Airy Private Bedroom</h3>
@@ -583,8 +583,31 @@ you need to get settled in — all you have to bring is your suitcase!
 
 </template>
 <script>
-export default{ 
+ import axios from "axios";
 
+export default{ 
+name:"users",
+ data(){ 
+        return{ 
+       
+        };
+    },
+    mounted(){
+        this.view();     
+    },
+    methods:{ 
+      view(){ 
+         let user = JSON.parse(localStorage.getItem("user"));
+          axios
+        .get("https://vrent.techvill.org/vrentapi/api/properties/" +
+            this.$route.params.slug, {
+          headers: {Authorization:"Bearer "+ user.token },
+        }) .then((res) => {
+          res.data
+          console.log(res.data);
+          });
+      },
+    }
 }
 
 </script>

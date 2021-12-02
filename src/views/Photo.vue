@@ -38,7 +38,7 @@
 	
 </div>
 <div class="col-md-6 border pb-3 pl-2 colh">
-  <div class="border d-flex flex-row row" style="background-color:#eee">
+  <div class="border d-flex flex-row row" >
     <div class="backgrnd d-flex align-items-start">
       <h4>Photos</h4>
     </div>

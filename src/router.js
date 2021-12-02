@@ -136,7 +136,7 @@ export const router = new Router({
                 import ('./views/Listing.vue')
         },
         {
-            path: '/singlelist:id',
+            path: '/singlelist:slug',
             name: 'singlelist',
             // lazy-loaded
             component: () =>

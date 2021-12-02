@@ -17,9 +17,9 @@
     <h4 class="text-muted">Listing</h4>
     <div class="text-dark">
     Sort By
-    <select v-model="status" name="" id="" class="p-2" @change.prevent="alert()"> 
-    <option value="listed">Listed</option>
-    <option value="Unlisted">Unlisted</option>
+    <select v-model="status" name="" id="" class="p-2" @change.prevent="datafilter()"> 
+     <option value="Listed">Listed</option>
+     <option value="Unlisted">Unlisted</option>
     </select>
 
     </div>
@@ -59,7 +59,9 @@
     
  
 <toggle-button :value="true"
-               :labels="{checked: 'listed', unchecked: 'Unlisted'}" :font-size="16" :width="90" :height="30"/>
+               :labels="{checked: 'listed', unchecked: 'Unlisted'}"
+                :font-size="16" :width="90" :height="30" 
+                v-model="statustwo" @change="onToggleChange(item.status, $event)"/>
     </div>
     </div>
     <div class="d-flex justify-content-end">
@@ -96,6 +98,7 @@ export default{
         return{ 
        images:"",
        status:"",
+       statustwo:"",
        property:{},
         };
     },
@@ -124,6 +127,23 @@ export default{
           
         });
     }, 
+    onToggleChange(mystatus) {  
+      this.statustwo=mystatus; 
+       let user = JSON.parse(localStorage.getItem("user"));
+      axios
+        .get("https://vrent.techvill.org/vrentapi/api/properties?status="+this.statustwo, {
+          headers: {Authorization:"Bearer "+ user.token },
+        })
+        .then((res) => {
+          res.data
+          console.log(res.data);
+          this.property=res.data.data.properties;
+         
+          
+        });
+       
+},
+
     // getPaginateList(page = 1){
     //    let user = JSON.parse(localStorage.getItem("user"));
     //           axios.get('https://vrent.techvill.org/vrentapi/api/properties?page=' + page,{
@@ -145,9 +165,21 @@ headers: {Authorization:"Bearer "+ user.token },
   }); 
     },         
 
-            alert(){
-              alert(this.status);
-                   }
+            datafilter(){
+      let user = JSON.parse(localStorage.getItem("user"));
+      axios
+        .get("https://vrent.techvill.org/vrentapi/api/properties?status="+this.status, {
+          headers: {Authorization:"Bearer "+ user.token },
+        })
+        .then((res) => {
+          res.data
+          console.log(res.data);
+          this.property=res.data.data.properties;
+         
+          
+        });
+             
+       }
     }
     
 }
