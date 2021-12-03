@@ -1,60 +1,37 @@
 <template>
- <div class="container">
- <form id="app" @submit="checkForm">
-  
- <p class="text-info">{{ error }}</p>
-
- <div>
-  <label for="name" class="text-info">  <p>Check in</p> </label>
-  <p><date-pick v-model="date" class="p-2"></date-pick></p>
- </div>
+  <div id="app">
   <div>
-  <label for="name" class="text-info">  <p>Check out</p> </label>
-  <p><date-pick v-model="date" class="p-2"></date-pick></p>
- </div>
-  <p>
-    <input type="submit" value="Submit">  
-  </p>
- <div class="row">
-  <div class="col-md-4">
- 
+<img src="../assets/imgone.jpg">
   </div>
-  <div class="col-md-4">
-  
+    <select v-model="item">
+      <option v-for="(l,index) in list" :key="index" :value="index">{{l}}</option>
+    </select>
+
+    {{item}}
   </div>
-  <div class="col-md-4">
-  
-  </div>
-  </div>
-</form>
- </div>
 </template>
+
 <script>
-import DatePick from 'vue-date-pick';
-import 'vue-date-pick/dist/vueDatePick.css';
-export default { 
-  components: {DatePick},
-   data(){
-     
-  return{ 
-      error:'',
-    name:'',
-    date: '2021-01-01'
-  };
-  },
-  methods:{
-    
-    checkForm:function(e) {
-     if(this.name=='')
-    this.error="please fill up your name field";
-    
-e.preventDefault();
-    }
+
+export default {
+  name: "App",
+  data() {
+    return {
+      title: "Pick one",
+      list: ['hi1', 'hi2','hi3'],
+      item: 2
+    };
   }
-}
+};
 </script>
-<style scoped>
-input,select {
-  margin-left: 10px;
+
+<style>
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>

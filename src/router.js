@@ -10,8 +10,8 @@ export const router = new Router({
     mode: 'history',
     routes: [{
             path: '/',
-            name: 'home',
-            component: Home
+            name: 'login',
+            component: Login
         },
         {
             path: '/home',
@@ -122,12 +122,12 @@ export const router = new Router({
                 import ('./views/Parent.vue')
         },
         {
-          path: '/copy',
-          name: 'copy',
-          // lazy-loaded
-          component: () =>
-              import ('./views/Justcopy.vue')
-      },
+            path: '/copy',
+            name: 'copy',
+            // lazy-loaded
+            component: () =>
+                import ('./views/Justcopy.vue')
+        },
         {
             path: '/listing',
             name: 'listing',
@@ -142,7 +142,7 @@ export const router = new Router({
             component: () =>
                 import ('./views/SingleListProperty.vue')
         },
-       
+
     ]
 });
 router.beforeEach((to, from, next) => {

@@ -1,7 +1,8 @@
 <template>
  
 <form @submit.prevent="add()">
-  <div class="row mt-5">
+
+  <div class="row mt-5" >
 	<div class="col-md-1">
 		
 	</div>
@@ -33,8 +34,9 @@
 	</div>
 	</div>
   </div>
+<div class="col-md-6 border pb-3 pl-2 colh" v-if="loading"><Loading></Loading></div>
+<div class="col-md-6 border pb-3 pl-2 colh" v-else>
 
-<div class="col-md-6 border pb-3 pl-2 colh">
 	<div class="" style="height:189px;">
   <div class="row">
 		<div class="roomsandbeds d-flex align-items-start backgrnd"><h4>Rooms and Beds</h4></div>
@@ -81,20 +83,21 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6">
+    
+      
    <label for="inputState" class="form-label">Bathrooms</label>
   
-    <select id="inputState"  class="form-select" v-model="bathroomss" required  >
-    
-      <option  class="selected" value="0.5">0.5</option>
-      <option value="1">1</option>
-      <option value="1.5">1.5</option>
-      <option value="2">2</option>
-      <option value="2.5">2.5</option>
-      <option value="3">3</option>
-      <option value="3.5">3.5</option>
-      <option value="4">4</option>
-      <option value="4.5">4.5</option>
-      <option value="5">5</option>
+    <select id="inputState"  class="form-select" v-model="bathroomss" required >
+      <option value="0.50">0.5</option>
+      <option value="1.00">1</option>
+      <option value="1.50">1.5</option>
+      <option value="2.00">2</option>
+      <option value="2.50">2.5</option>
+      <option value="3.00">3</option>
+      <option value="3.50">3.5</option>
+      <option value="4.00">4</option>
+      <option value="4.50">4.5</option>
+      <option value="5.00">5</option>
   
     </select>
   </div>
@@ -171,7 +174,9 @@
 import axios from "axios";
 
 import { WebSocketServer } from 'ws';
+import Loading from './Loading.vue';
 export default {
+  components: { Loading },
   name: "user",
   data() {
     return {
@@ -213,6 +218,8 @@ server.on('connection', function (socket) {
     },
     
     view() {
+      this.loading=true;
+
       let user = JSON.parse(localStorage.getItem("user"));
       axios
         .get(
@@ -230,20 +237,26 @@ server.on('connection', function (socket) {
           this.bedtypes = res.data.data.bed_type;
          // this.accommodates = res.data.data.accommodates;
 
-          this.totalbedrooms = res.data.data.property.bedrooms;
-          // if(this.totalbedrooms==null){ 
-          //  this.totalbedrooms=="2"
-          // }else
+          if(res.data.data.property.bedrooms==null){ 
+           this.totalbedrooms=2
+          }else{
+           this.totalbedrooms = res.data.data.property.bedrooms;
+          }
           this.bed_type = res.data.data.property.bed_type;
           this.totalbed = res.data.data.property.beds;
           this.bathroomss = res.data.data.property.bathrooms;
+           if(res.data.data.property.bathrooms==null){ 
+           this.bathroomss=2
+          }else{
+           this.bathroomss = res.data.data.property.bathrooms;
+          }
           this.property_type= res.data.data.property.property_type,
           this.space_type=res.data.data.property.space_type,
           this.accommodates=res.data.data.property.accommodates,
          
          this.step=res.data.data.step
          this.steps=res.data.data.steps;
-         
+         this.loading=false;
         });
     },
     add() {
